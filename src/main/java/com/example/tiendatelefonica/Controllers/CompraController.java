@@ -27,12 +27,13 @@ public class CompraController {
     }
 
 
-    @GetMapping ("/shop-search")
+    @GetMapping ("/shop-search-byClient")
         public Compra compraSearch(int idCliente){
             return compraService.findCompra(idCliente);
         }
 
-
+    @GetMapping("/shop-search-byOrderNumer")
+        public Compra compraSearch(String numeroCompra) {return compraService.findCompra(numeroCompra); }
 }
 
 

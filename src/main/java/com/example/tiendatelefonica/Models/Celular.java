@@ -6,10 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,4 +27,15 @@ public class Celular {
 
     private Boolean vendido;
 
+    /*
+    @ManyToOne
+    @JoinColumn(name = "idCompra",
+    referencedColumnName = "idCompra")
+    private Compra compraguardada;
+    */
+
+    @OneToMany(mappedBy = "Celular")
+    private List<Compra> comprasguardadas;
+
 }
+

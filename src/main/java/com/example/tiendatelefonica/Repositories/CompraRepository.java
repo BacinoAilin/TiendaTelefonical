@@ -8,6 +8,8 @@ public interface CompraRepository extends JpaRepository<Compra,String>{
 
     Compra findCompraByIdCliente(int idCliente);
 
+    Compra findCompraByNumeroCompra(String numeroCompra);
+
 }
 
 

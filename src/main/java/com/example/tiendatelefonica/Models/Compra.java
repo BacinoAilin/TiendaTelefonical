@@ -5,10 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,9 +25,11 @@ public class Compra {
 
     private float totalPagar;
 
-    private int idCliente;
+    @OneToOne
+    private Cliente cliente;
 
-    private int idCelular;
+    @OneToMany (mappedBy = "Compra")
+    private List<Celular> celulares;
 
 
 }
